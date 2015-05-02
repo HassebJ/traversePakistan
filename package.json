@@ -17,6 +17,7 @@
     "fs": "0.0.2",
     "lodash": "*",
       "passport":"*",
-      "express-session":"*"
+      "express-session":"*",
+      "connect":"*"
   }
 }

@@ -1,9 +1,12 @@
 var express = require('express');
 var compression = require('compression');
 var bodyParser = require('body-parser');
+require('./passport');
 var config = require('./constants'),
     path = require('path'),
     passport = require('passport');
+
+
 var utilities = require('./utilities');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -29,7 +32,7 @@ module.exports = function( app ) {
         // resave : true,
         // saveUninitialized : true,
         cookie: {
-            maxAge  : 10800 * 1000//3 Hour
+            maxAge  : 360*5//10800 * 1000//3 Hour
             // expires : new Date(Date.now() + 300000) //1 Hour
         }
     }));
