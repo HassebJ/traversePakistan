@@ -8,7 +8,7 @@
 var mongoose = require('mongoose'),
     passport = require('passport'),
     User = mongoose.model('User'),
-    Role = mongoose.model('Role'),
+//    Role = mongoose.model('Role'),
     _ = require('lodash');
 
 /**
@@ -47,6 +47,7 @@ exports.signup = function(req, res) {
 
     // Add missing user fields
     user.displayName = user.firstName + ' ' + user.lastName;
+    console.log("insisde sign up " + req.body.username);
 
     user.save(function(err) {
         if (err) {
