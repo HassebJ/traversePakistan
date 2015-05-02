@@ -42,12 +42,6 @@ module.exports = function( app ) {
     app.use(passport.initialize());
     app.use(passport.session());
 
-//    console.log("Home " + path.concat(__dirname + '../routes') + " ");
-//    fs.readdirSync(path.resolve(process.env.HOME + 'traversePakistan/routes').forEach(function (file) {
-//        if (~file.indexOf('.js')) require(__dirname + '/routes/' + file);
-//    }));
-
-    // Load Routes
     utilities.walk('./routes/').forEach(function(routePath) {
         require(path.resolve(routePath))(app);
     });

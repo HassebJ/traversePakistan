@@ -19,10 +19,7 @@ var app = express();
 //configure express;
 require("./config/express") (app );
 
-//fs.readdirSync(__dirname + '/routes').forEach(function (file) {
-//    console.log(__dirname + '/routes/' + file);
-//    if (~file.indexOf('.js')) require(__dirname + '/routes/' + file)(app);
-//});
+require('./config/passport')();
 
 app.listen(3000, function(){
   console.log("Server listening at :" + 3000);

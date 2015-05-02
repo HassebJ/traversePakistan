@@ -18,6 +18,7 @@
     "lodash": "*",
       "passport":"*",
       "express-session":"*",
-      "connect":"*"
+      "connect":"*",
+      "passport-local":"*"
   }
 }
