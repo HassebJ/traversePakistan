@@ -22,4 +22,4 @@ var placeSchema = new Schema({
 
 //Methods (They apply on objects of Schema)
 
-mongoose.model('place',placeSchema);
+module.exports = mongoose.model('place' ,placeSchema);

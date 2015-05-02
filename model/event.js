@@ -17,11 +17,11 @@ var eventSchema = new Schema({
     tags: [String],
     going: [{userId: Schema.Types.ObjectId}],
     host: Schema.Types.ObjectId,
-    difficulty: String
+    difficulty: String,
+    socialMediaLinks: [String]
 });
 
 //Statics (They are methods that apply to the Schema)
-
 eventSchema.static.upcomingEventList = function(cb){
     this
         .find()
@@ -31,7 +31,12 @@ eventSchema.static.upcomingEventList = function(cb){
         .exec(cb);
 };
 
+eventSchema.static.validate = function( event ){
+
+}
+
 //Methods (They apply on objects of Schema)
+
 
 /**
  * To get the count of the number of people going to an event.
@@ -41,4 +46,4 @@ eventSchema.methods.getEventGoingCount = function(cb){
     this.find({_id : this._id}, cb);
 };
 
-mongoose.model('place',placeSchema);
+module.exports = mongoose.model('event', eventSchema);
