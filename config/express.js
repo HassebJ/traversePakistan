@@ -14,9 +14,6 @@ module.exports = function( app ) {
     app.use ( compression({
         threshold :512
     }));
-
-
-
     /* // Static files middleware
      app.use(express.static(config.root + '/public'));
      */

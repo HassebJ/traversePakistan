@@ -30,7 +30,7 @@ db.on('open',function() {
             console.log(error);
         else
             console.log(data);
-    })
+    });
     /*
     var K2 = new Place({
         name: "K2",

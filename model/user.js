@@ -1,3 +1,4 @@
+
 /**
  * Created by usman on 4/25/15.
  */
@@ -8,6 +9,5 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
 
 });
-
 
 module.exports ;
