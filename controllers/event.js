@@ -2,7 +2,12 @@
  * Created by usman on 5/2/15.
  */
 
+<<<<<<< HEAD:controller/event.js
 var Event = require("../model/event");
+=======
+
+var Event = require("./event");
+>>>>>>> 0493fa86d31f8d6b4396dcfd14213367d5f09122:controllers/event.js
 var mongoose = require("mongoose");
 
 module.exports = {
