@@ -7,8 +7,8 @@ var database = require('./database/connection');
 
 var fs = require("fs");
 // Bootstrap models
-fs.readdirSync(__dirname + '/model').forEach(function (file) {
-  if (~file.indexOf('.js')) require(__dirname + '/model/' + file);
+fs.readdirSync(__dirname + '/models').forEach(function (file) {
+  if (~file.indexOf('.js')) require(__dirname + '/models/' + file);
 });
 
 var express = require("express");

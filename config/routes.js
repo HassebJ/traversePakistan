@@ -2,9 +2,9 @@
  * Created by usman on 5/2/15.
  */
 
-var event = require("../controller/event");
-var place = require("../controller/place");
-var user = require("../model/user");
+var event = require("./event");
+var place = require("./place");
+var user = require("./user");
 
 module.exports = function( app ){
 

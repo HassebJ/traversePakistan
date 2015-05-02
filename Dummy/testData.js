@@ -3,7 +3,7 @@
  * Created by usman on 4/20/15.
  */
 
-var Place = require('../model/place');
+var Place = require('./place');
 
 var K2 = new Place({
     description : 'The second highest mountain on Earth.',
@@ -22,7 +22,7 @@ K2.save(function(error,data){
         console.log(data);
 });
 
-var Event = require('../model/event');
+var Event = require('./event');
 
 var event = new Event({
     gettingThere: {routeDesc: "It will be a wonderful Place", lat: 43.9, long: 32.1},
