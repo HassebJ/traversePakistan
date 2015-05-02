@@ -9,6 +9,7 @@ var Schema = mongoose.Schema;
  * @type {Schema}
  */
 var eventSchema = new Schema({
+    name : String,
     gettingThere: {routeDesc: String, lat: Number, long: Number},
     eventSchedule: {startDate: Date, endDate: Date},
     description: String,

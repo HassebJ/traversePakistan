@@ -14,8 +14,7 @@ module.exports = function( app ) {
     app.use ( compression({
         threshold :512
     }));
-
-    /* // Static files middleware
+   /* // Static files middleware
      app.use(express.static(config.root + '/public'));
      */
 
@@ -46,7 +45,7 @@ module.exports = function( app ) {
 //    }));
 
     // Load Routes
-    utilities.walk('./routes/event').forEach(function(routePath) {
+    utilities.walk('./routes/').forEach(function(routePath) {
         require(path.resolve(routePath))(app);
     });
 

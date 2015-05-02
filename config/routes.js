@@ -9,8 +9,11 @@ var user = require("./user");
 module.exports = function( app ){
 
   app.get("/event/:id", event.getEvent);
-  app.post("/event",event.createEvent);
-//  app.get("/place/:id", );
+  app.post("/event", event.createEvent);
+  app.delete("/event/:id", event.deleteEvent);
+  app.get("/place/:id", place.getPlace );
+  app.post("/place",place.addPlace);
+  app.delete("/place/:id",place.deletePlace);
 
   //For error Handling, always keep in the end
 

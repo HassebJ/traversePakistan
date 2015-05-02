@@ -2,38 +2,48 @@
  * Created by usman on 5/2/15.
  */
 
+var Event = require("../models/event");
 
-var Event = require("./event");
 var mongoose = require("mongoose");
+
 module.exports = {
     getEvent : function( req, res){
         var id = req.params.id;
-        console.log("id :" + id);
-        Event.findOne( {_id : mongoose.Types.ObjectId( id ) }, function(error, data){
+        console.log(id);
+        Event.find( {_id : id}, function(error, data){
             if(error){
-                console.error("Got an Error" + error);
-                res.send({
-                    status : "error",
-                    result : {}
-                });
+                res.status(500).end();
             }else{
-                if( data.length > 0 ){
-                    res.send({
-                        status : "success",
-                        result : data
-                    });
-                }
+                console.log(data);
+                res.send({
+                    result : data
+                });
             }
         });
     },
     createEvent : function( req, res) {
+        var jsonEvent = req.body;
+        console.log(jsonEvent);
+        var event= new Event(jsonEvent);
 
-        event.save(function(error,data){
-            if(error)
-                console.log(error);
-            else
-                console.log(data);
+        event.save(jsonEvent,function(error,data){
+            if(error) {
+                res.send(500);
+            }else{
+                res.send(200);
+            }
         });
-        res.send("okay");
+    },
+    deleteEvent : function( req, res){
+        var eventId = req.params.id;
+        Event.findOneAndRemove({ _id : eventId},function(error,data){
+            if(error) {
+                console.error(error);
+                res.send(500);
+            }else{
+                console.log("Event removed.");
+                res.send(200);
+            }
+        });
     }
 };
