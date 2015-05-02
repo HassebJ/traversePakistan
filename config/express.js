@@ -45,12 +45,10 @@ module.exports = function( app ) {
 //        if (~file.indexOf('.js')) require(__dirname + '/routes/' + file);
 //    }));
 
-/*
     // Load Routes
-    utilities.walk('../routes/event').forEach(function(routePath) {
+    utilities.walk('./routes/event').forEach(function(routePath) {
         require(path.resolve(routePath))(app);
     });
-*/
 
 
 

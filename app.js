@@ -24,10 +24,6 @@ fs.readdirSync(__dirname + '/routes').forEach(function (file) {
     if (~file.indexOf('.js')) require(__dirname + '/routes/' + file)(app);
 });
 
-//config routes;
-//
-//require("./config/routes") (app);
-
 app.listen(3000, function(){
   console.log("Server listening at :" + 3000);
 });
