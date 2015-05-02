@@ -3,5 +3,6 @@ data/
 apidocs/
 ../npm-debug.log
 .idea/
+.*
 
 .idea/workspace.xml

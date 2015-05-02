@@ -98,13 +98,21 @@ exports.signin = function(req, res, next) {
                 if (err) {
                     return res.send(400, err);
                 } else {
-                    if(isResponseJson){
-                        res.json(user);
-                    }else{
-                        res.jsonp(user);
-                    }
+
+                    res.json(user);
+
                 }
             });
         }
     })(req, res, next);
+};
+
+/**
+ * Signout user
+ * @url /api/v1/users/signout
+ * @method POST
+ */
+exports.signout = function(req, res) {
+    req.logout();
+    res.send(200);
 };
