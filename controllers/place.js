@@ -2,7 +2,7 @@
  * Created by usman on 5/2/15.
  */
 
-var Place = require("../model/place");
+var Place = require("../models/place");
 var mongoose = require("mongoose");
 
 module.exports = {

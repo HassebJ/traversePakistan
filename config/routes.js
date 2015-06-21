@@ -2,18 +2,9 @@
  * Created by usman on 5/2/15.
  */
 
-var event = require("./event");
-var place = require("./place");
-var user = require("./user");
 
 module.exports = function( app ){
 
-  app.get("/event/:id", event.getEvent);
-  app.post("/event", event.createEvent);
-  app.delete("/event/:id", event.deleteEvent);
-  app.get("/place/:id", place.getPlace );
-  app.post("/place",place.addPlace);
-  app.delete("/place/:id",place.deletePlace);
 
   //For error Handling, always keep in the end
 

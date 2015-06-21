@@ -4,7 +4,6 @@ var users = require('../controllers/users');
 module.exports = function(app) {
 
 //    var requireLogin = users.checkLogin(config.requireLogin);
-
     app.post('/users/signup', users.signup);
     app.post('/users/login', users.signin);
 //    app.post(apiversion+'/users/logout', requireLogin, users.signout);

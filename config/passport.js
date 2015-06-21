@@ -20,4 +20,5 @@ module.exports = function() {
 	utilities.walk('./config/strategies').forEach(function(strategyPath) {
 		require(path.resolve(strategyPath))();
 	});
+
 };

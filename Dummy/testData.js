@@ -3,8 +3,9 @@
  * Created by usman on 4/20/15.
  */
 
-var Event = require('../model/event');
-var Place = require('../model/place');
+var Event = require('../models/event');
+var Place = require('../models/place');
+var user = require('../models/user');
 var mongoose= require('mongoose');
 
 mongoose.connect("mongodb://localhost/traverse_pakistan_db");
@@ -47,4 +48,5 @@ db.on('open',function() {
      else
      console.log(data);
      });*/
+
 });

@@ -2,12 +2,8 @@
  * Created by usman on 5/2/15.
  */
 
-<<<<<<< HEAD:controller/event.js
-var Event = require("../model/event");
-=======
+var Event = require("../models/event");
 
-var Event = require("./event");
->>>>>>> 0493fa86d31f8d6b4396dcfd14213367d5f09122:controllers/event.js
 var mongoose = require("mongoose");
 
 module.exports = {
@@ -30,7 +26,7 @@ module.exports = {
         console.log(jsonEvent);
         var event= new Event(jsonEvent);
 
-        event.save(jsonEvent,function(error,data){
+        event.save(function(error,data){
             if(error) {
                 res.send(500);
             }else{
