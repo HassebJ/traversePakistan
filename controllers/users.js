@@ -51,6 +51,7 @@ exports.signup = function(req, res) {
 
     user.save(function(err) {
         if (err) {
+            console.log(err);
             return res.send(400, {
                 message: getErrorMessage(err)
             });
@@ -63,6 +64,7 @@ exports.signup = function(req, res) {
 
             req.login(user, function(err) {
                 if (err) {
+                    console.log(err);
                     res.send(400, err);
                 } else {
                     res.json(user);

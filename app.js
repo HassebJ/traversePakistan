@@ -23,6 +23,8 @@ fs.readdirSync(__dirname + '/routes').forEach(function (file) {
 //config routes;
 //
 //require("./config/routes") (app);
+require('./config/passport')();
+
 app.listen(3000, function(){
   console.log("Server listening at :" + 3000);
 });

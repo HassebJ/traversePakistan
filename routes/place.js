@@ -9,3 +9,4 @@ module.exports = function (app){
     app.post('/place/', place.addPlace);
     app.delete('/place/', place.deletePlace);
 };
+

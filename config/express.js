@@ -1,9 +1,12 @@
 var express = require('express');
 var compression = require('compression');
 var bodyParser = require('body-parser');
+require('./passport');
 var config = require('./constants'),
     path = require('path'),
     passport = require('passport');
+
+
 var utilities = require('./utilities');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -29,7 +32,7 @@ module.exports = function( app ) {
         // resave : true,
         // saveUninitialized : true,
         cookie: {
-            maxAge  : 10800 * 1000//3 Hour
+            maxAge  : 360*5//10800 * 1000//3 Hour
             // expires : new Date(Date.now() + 300000) //1 Hour
         }
     }));
@@ -39,17 +42,9 @@ module.exports = function( app ) {
     app.use(passport.initialize());
     app.use(passport.session());
 
-//    console.log("Home " + path.concat(__dirname + '../routes') + " ");
-//    fs.readdirSync(path.resolve(process.env.HOME + 'traversePakistan/routes').forEach(function (file) {
-//        if (~file.indexOf('.js')) require(__dirname + '/routes/' + file);
-//    }));
-
-/*
-    // Load Routes
-    utilities.walk('../routes/event').forEach(function(routePath) {
+    utilities.walk('./routes/').forEach(function(routePath) {
         require(path.resolve(routePath))(app);
     });
-*/
 
 
 
