@@ -45,14 +45,14 @@ exports.signup = function(req, res) {
     user.password = req.body.password;
     user.username = req.body.username;
 
+
     // Add missing user fields
     user.displayName = user.firstName + ' ' + user.lastName;
-    console.log("insisde sign up " + req.body.username);
 
     user.save(function(err) {
         if (err) {
             console.log(err);
-            return res.send(400, {
+            return res.status(400).send({
                 message: getErrorMessage(err)
             });
         } else {
@@ -65,7 +65,7 @@ exports.signup = function(req, res) {
             req.login(user, function(err) {
                 if (err) {
                     console.log(err);
-                    res.send(400, err);
+                    res.status(400).send (err);
                 } else {
                     res.json(user);
                 }
@@ -83,14 +83,13 @@ exports.signup = function(req, res) {
 exports.signin = function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
         if (err){
-            return res.send(500, {
+            return res.status(500).send({
                 message: 'An internal server error occur ' + info
             });
         }
         if (!user){
-            return res.send(204, {
-                message: 'No user found'
-            });
+            return res.send(201, {message: 'No user found'});
+
         }else {
             // Remove sensitive data before login
             user.password = undefined;
@@ -99,11 +98,9 @@ exports.signin = function(req, res, next) {
             // user.permissions = undefined;
             req.login(user, function(err) {
                 if (err) {
-                    return res.send(400, err);
+                    return res.status(400).send (err);
                 } else {
-
                     res.json(user);
-
                 }
             });
         }

@@ -1,16 +1,15 @@
-var express = require('express');
 var compression = require('compression');
 var bodyParser = require('body-parser');
 require('./passport');
 var config = require('./constants'),
-    path = require('path'),
-    passport = require('passport');
+    path = require('path')
 
 
 var utilities = require('./utilities');
 var cookieParser = require('cookie-parser');
+var cookieSession = require('cookie-session');
 var session = require('express-session');
-var fs = require("fs");
+var passport = require('passport');
 
 module.exports = function( app ) {
     //Compresses the document
@@ -26,18 +25,18 @@ module.exports = function( app ) {
     app.use(bodyParser.urlencoded({ extended: true }));
 
     app.use(cookieParser(config.sessionSecret));
+    app.use(cookieSession({secret : config.sessionSecret, cookie :{maxAge :1}}));
 
     app.use(session({
         secret  : config.sessionSecret,
-        // resave : true,
-        // saveUninitialized : true,
+        proxy : true,
+        resave : true,
+        saveUninitialized : true,
         cookie: {
             maxAge  : 360*5//10800 * 1000//3 Hour
             // expires : new Date(Date.now() + 300000) //1 Hour
         }
     }));
-
-
     // use passport session
     app.use(passport.initialize());
     app.use(passport.session());
@@ -45,8 +44,6 @@ module.exports = function( app ) {
     utilities.walk('./routes/').forEach(function(routePath) {
         require(path.resolve(routePath))(app);
     });
-
-
 
     //For error Handling, always keep in the end
 

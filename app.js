@@ -15,15 +15,13 @@ var app = express();
 
 //configure express;
 require("./config/express") (app );
+require('./config/passport')();
 
+
+//config routes;
 fs.readdirSync(__dirname + '/routes').forEach(function (file) {
     if (~file.indexOf('.js')) require(__dirname + '/routes/' + file)(app);
 });
-
-//config routes;
-//
-//require("./config/routes") (app);
-require('./config/passport')();
 
 app.listen(3000, function(){
   console.log("Server listening at :" + 3000);

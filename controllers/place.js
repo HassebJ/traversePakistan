@@ -8,6 +8,7 @@ var mongoose = require("mongoose");
 module.exports = {
     getPlace : function(req,res ){
         var id = req.params.id;
+        console.log("User ID" + req.user.id);
         Place.find( {},function(error,data){
             if(error){
                 console.log(error)
